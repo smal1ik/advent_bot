@@ -1,0 +1,14 @@
+[project]
+name = "advent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiocache>=0.12.3",
+    "aiogram>=3.22.0",
+    "alembic>=1.17.2",
+    "asyncpg>=0.30.0",
+    "pydantic>=2.11.10",
+    "python-decouple>=3.8",
+]

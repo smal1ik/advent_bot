@@ -7,6 +7,7 @@ from aiogram.client.default import DefaultBotProperties
 
 from decouple import config
 
+from app.handlers.advent import advent_handler
 from app.handlers.main import main_handler
 from app.utils.advent_calendar import migration_advent_calendar
 from app.utils.cache import CacheUser, CacheAdvent
@@ -21,6 +22,7 @@ async def main():
     dp = Dispatcher()
 
     dp.include_router(main_handler)
+    dp.include_router(advent_handler)
 
     await migration_advent_calendar()
     cache_user = CacheUser(ttl=60*5, reset_interval=60*5, max_size_cache=5000)

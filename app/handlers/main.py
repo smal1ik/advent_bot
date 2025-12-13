@@ -20,6 +20,7 @@ async def cmd_message(message: types.Message, bot: Bot, command: Command):
                        message.from_user.username,
                        message.from_user.full_name,
                        secret_key)
+    user = await get_user(message.from_user.id)
     await message.answer_photo(caption=cp.start_msg,
                                photo=FSInputFile('app/static/advent.png'),
                                reply_markup=kb.get_advent_btn(check_days=user.check_days,

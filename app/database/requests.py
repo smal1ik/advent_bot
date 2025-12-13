@@ -1,4 +1,4 @@
-from app.database.models import User, async_session, AdventDay
+from app.database.models import User, async_session, AdventDay, Winner
 from sqlalchemy import select, BigInteger, update, delete, func, case, insert, or_
 
 
@@ -45,6 +45,12 @@ async def get_advent_day(day: int) -> AdventDay:
 
 async def add_advent_day(advent_day: AdventDay):
     async with async_session() as session:
+        if advent_day.left_wins_1 is None:
+            advent_day.left_wins_1 = advent_day.count_wins_1
+        if advent_day.left_wins_2 is None:
+            advent_day.left_wins_2 = advent_day.count_wins_2
+        if advent_day.left_wins_3 is None:
+            advent_day.left_wins_3 = advent_day.count_wins_3
         session.add(advent_day)
         await session.commit()
 
@@ -53,9 +59,10 @@ async def update_stats_advent_day(advent_day: AdventDay):
     async with async_session() as session:
         await session.execute(update(AdventDay).where(AdventDay.day == advent_day.day).
                               values(
-            left_wins=advent_day.left_wins,
-            count_clicks=advent_day.count_clicks,
-            winners=advent_day.winners
+            left_wins_1=advent_day.left_wins_1,
+            left_wins_2=advent_day.left_wins_2,
+            left_wins_3=advent_day.left_wins_3,
+            count_clicks=advent_day.count_clicks
         ))
         await session.commit()
 
@@ -74,3 +81,17 @@ async def update_advent_day(advent_day: AdventDay):
 
 async def sync_history_lucky_post():
     pass
+
+
+async def add_winner(tg_id: BigInteger, day: int, type_prize: int):
+    async with async_session() as session:
+        session.add(Winner(tg_id=tg_id, day=day, type_prize=type_prize))
+        await session.commit()
+
+
+async def get_winner(tg_id: BigInteger) -> Winner | None:
+    async with async_session() as session:
+        result = await session.scalar(select(Winner).where(Winner.tg_id == tg_id))
+        if result:
+            return result
+        return None

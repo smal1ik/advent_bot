@@ -102,6 +102,11 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
         await bot.send_message(text=text.replace('.', '\.'), chat_id=env_config("CHAT_ID"), parse_mode="MarkdownV2")
 
     else:
+        if advent_day.day == 16:
+            await callback.message.answer_photo(caption=random.choice(advent_day.msgs_loses),
+                                                photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
+                                                reply_markup=kb.advent_16_btn)
+            return
         await callback.message.answer_photo(caption=random.choice(advent_day.msgs_loses),
                                             photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
                                             reply_markup=kb.advent_btn)

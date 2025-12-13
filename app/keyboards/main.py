@@ -79,6 +79,22 @@ def get_advent_btn(start_day=1,
     return btns.as_markup()
 
 
+advent_16_btn = InlineKeyboardBuilder()
+advent_16_btn.row(
+    types.InlineKeyboardButton(
+        text="Ссылка на плейлист",
+        url="https://music.yandex.ru/users/valerarokidemchenko/playlists/1003?ref_id=778D9512-DD2B-463B-97C3-150B2BD4C95E&utm_medium=copy_link)"
+    )
+)
+advent_16_btn.row(
+    types.InlineKeyboardButton(
+        text="Вернуться к календарю",
+        callback_data="advent"
+    )
+)
+advent_16_btn = advent_16_btn.as_markup()
+
+
 advent_btn = InlineKeyboardBuilder()
 advent_btn.row(
     types.InlineKeyboardButton(

@@ -12,7 +12,6 @@ from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_engine
 from decouple import config
 
-from app.utils.models import TypeAdventDay
 
 engine = create_async_engine(config('POSTGRESQL'), echo=False)
 async_session = async_sessionmaker(engine)
@@ -38,17 +37,22 @@ class AdventDay(Base):
     __tablename__ = 'advent_days'
     id: Mapped[int] = mapped_column(primary_key=True)
     day: Mapped[int] = mapped_column(nullable=False)
-    type: Mapped[enum.Enum] = mapped_column(Enum(TypeAdventDay), nullable=False)
 
-    link: Mapped[str] = mapped_column(nullable=True)
-
-    text: Mapped[str] = mapped_column(nullable=True)
-    buttons: Mapped[List[InlineKeyboardMarkup]] = mapped_column(JSONB, nullable=True)
-
-    count_wins: Mapped[int] = mapped_column(nullable=True)
-    left_wins: Mapped[int] = mapped_column(nullable=True)
+    count_wins_1: Mapped[int] = mapped_column(nullable=True)
+    count_wins_2: Mapped[int] = mapped_column(nullable=True)
+    count_wins_3: Mapped[int] = mapped_column(nullable=True)
+    left_wins_1: Mapped[int] = mapped_column(nullable=True, default=0)
+    left_wins_2: Mapped[int] = mapped_column(nullable=True, default=0)
+    left_wins_3: Mapped[int] = mapped_column(nullable=True, default=0)
     msgs_wins: Mapped[List[str]] = mapped_column(JSONB, default=[])
     msgs_loses: Mapped[List[str]] = mapped_column(JSONB, default=[])
 
     count_clicks: Mapped[int] = mapped_column(default=0)
-    winners: Mapped[List[BigInteger]] = mapped_column(JSONB, default=[])
+
+
+class Winner(Base):
+    __tablename__ = 'winners'
+    id: Mapped[int] = mapped_column(primary_key=True)
+    day: Mapped[int] = mapped_column(nullable=False)
+    tg_id: Mapped[int] = mapped_column(nullable=False)
+    type_prize: Mapped[int] = mapped_column(nullable=False)

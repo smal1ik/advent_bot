@@ -4,12 +4,14 @@ import sys
 
 from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
+from aiogram.fsm.storage.redis import RedisStorage
 
 from decouple import config
 
+from app.handlers.advent import advent_handler
 from app.handlers.main import main_handler
 from app.utils.advent_calendar import migration_advent_calendar
-from app.utils.cache import CacheUser, CacheAdvent
+from app.utils.cache import CacheAdvent
 
 
 async def main():
@@ -18,22 +20,19 @@ async def main():
               parse_mode="HTML"))
 
     await bot.delete_webhook()
-    dp = Dispatcher()
-
+    dp = Dispatcher(storage=RedisStorage.from_url(config('REDIS_URL')))
     dp.include_router(main_handler)
+    dp.include_router(advent_handler)
 
-    await migration_advent_calendar()
-    cache_user = CacheUser(ttl=60*5, reset_interval=60*5, max_size_cache=5000)
-    cache_advent = CacheAdvent(reset_interval=60*5)
+    # await migration_advent_calendar()
+    cache_advent = CacheAdvent(reset_interval=1*60)
 
     try:
         await dp.start_polling(bot,
                                polling_timeout=100,
-                               cache_user=cache_user,
                                cache_advent=cache_advent)
     finally:
         print("close cache")
-        await cache_user.flush()
         await cache_advent.flush()
 
 

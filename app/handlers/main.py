@@ -10,23 +10,6 @@ from app.keyboards import main as kb
 
 main_handler = Router()
 
-@main_handler.message(Command('start'))
-async def cmd_message(message: types.Message, bot: Bot, command: Command):
-    user = await get_user(message.from_user.id)
-    secret_key = command.args
-    if not user:
-        await add_user(message.from_user.id,
-                       message.from_user.first_name,
-                       message.from_user.username,
-                       message.from_user.full_name,
-                       secret_key)
-    user = await get_user(message.from_user.id)
-    await message.answer_photo(caption=cp.start_msg,
-                               photo=FSInputFile('app/static/advent.png'),
-                               reply_markup=kb.get_advent_btn(check_days=user.check_days,
-                                                              start_day=15,
-                                                              end_day=29))
-
 
 @main_handler.message(Command('start'))
 async def cmd_message(message: types.Message, bot: Bot, command: Command):

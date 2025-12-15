@@ -24,7 +24,7 @@ async def main():
     dp.include_router(main_handler)
     dp.include_router(advent_handler)
 
-    # await migration_advent_calendar()
+    await migration_advent_calendar()
     cache_advent = CacheAdvent(reset_interval=1*60)
 
     try:

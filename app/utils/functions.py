@@ -12,7 +12,8 @@ def check_winner(
         return False
 
     now = datetime.now()
-    if now.hour >= 23 and now.minute >= 30:
+    print(now)
+    if now.hour == 23 and now.minute >= 30:
         return True
 
     # сколько прошло секунд с начала дня
@@ -39,8 +40,4 @@ def check_winner(
         chance /= 5
 
     chance = max(min_chance, min(chance, max_chance))
-    print(chance)
     return random() < chance
-
-
-check_winner(3, 2)

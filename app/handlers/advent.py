@@ -61,7 +61,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
     advent_day = await cache_advent.add(day)
     advent_day.count_clicks += 1
     total_prizes = advent_day.count_wins_1 + advent_day.count_wins_2 + advent_day.count_wins_3
-    prizes_given = total_prizes - advent_day.left_wins_1 + advent_day.left_wins_2 + advent_day.left_wins_3
+    prizes_given = total_prizes - advent_day.left_wins_1 - advent_day.left_wins_2 - advent_day.left_wins_3
     check_win = check_winner(total_prizes, prizes_given)
 
     if check_win:

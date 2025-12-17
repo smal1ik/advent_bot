@@ -25,7 +25,7 @@ advent_calendar = [
     AdventDay(day=17,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  "Пусть вечер пройдёт комфортно: любимая одежда, согревающий чай, мягкий плед и те самые детали, о которых знаете только вы! Это все точно поднимет ваше настроение."],
+                  "Пусть вечер пройдёт комфортно: любимая одежда, согревающий чай, мягкий плед и ваш любимый фильм или сериал. Это все точно поднимет ваше настроение."],
               count_wins_1=2,
               count_wins_2=1,
               count_wins_3=0),
@@ -52,12 +52,8 @@ advent_calendar = [
               count_wins_3=0),
     AdventDay(day=21,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
-              msgs_loses=["""Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильный аксессуар станет ярким акцентом — перчатки, шапка-ушанка или балаклава. Они зададут настроение всему аутфиту.
-
-Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot и «Украшения» https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>""",
-                          """В любом образе важен акцент. Выберите одну деталь — маленькую, но заметную: шарф с принтом, брошь или контрастные перчатки. Этот элемент поможет вам выстроить гармоничный и модный аутфит.
-
-Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>"""],
+              msgs_loses=["""Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильный аксессуар станет ярким акцентом — перчатки, шапка-ушанка или балаклава. Они зададут настроение всему аутфиту.\n\nПодобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot и «Украшения» https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>""",
+                          """В любом образе важен акцент. Выберите одну деталь — маленькую, но заметную: шарф с принтом, брошь или контрастные перчатки. Этот элемент поможет вам выстроить гармоничный и модный аутфит.\n\nПодобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>"""],
               count_wins_1=0,
               count_wins_2=0,
               count_wins_3=0),
@@ -78,9 +74,7 @@ advent_calendar = [
     AdventDay(day=24,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  """Рюкзаки вошли в повседневную моду благодаря путешественникам и студентам в середине XX века. в 1980-е многие бренды адаптировали походные модели под повседневные и учебные нужды. Сегодня это один из самых универсальных аксессуаров, который уместен и в городе, и в поездках, и в офисных образах.
-
-Подобрать рюкзак себе или в подарок можно на сайте maag-fashion.com в разделе <a href="https://maag-fashion.com/collections/men-bags-backpacks/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Сумки | Рюкзаки»</a> в женском, мужском и детском отделах."""],
+                  """Рюкзаки вошли в повседневную моду благодаря путешественникам и студентам в середине XX века. в 1980-е многие бренды адаптировали походные модели под повседневные и учебные нужды. Сегодня это один из самых универсальных аксессуаров, который уместен и в городе, и в поездках, и в офисных образах.\n\nПодобрать рюкзак себе или в подарок можно на сайте maag-fashion.com в разделе <a href="https://maag-fashion.com/collections/men-bags-backpacks/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Сумки | Рюкзаки»</a> в женском, мужском и детском отделах."""],
               count_wins_1=2,
               count_wins_2=0,
               count_wins_3=0),

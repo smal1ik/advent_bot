@@ -47,8 +47,8 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
 async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: Bot, cache_advent: CacheAdvent):
     day = int(callback.data.split(":")[1])
     today = datetime.datetime.now().day
-    # if day != today:
-    #     return
+    if day != today:
+        return
 
     user = await get_user(callback.from_user.id)
     if day in user.check_days:

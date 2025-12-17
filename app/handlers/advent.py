@@ -38,9 +38,9 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
     already_winner = await get_winner(callback.from_user.id)
     if already_winner and already_winner.day == day:
         type_prize = already_winner.type_prize - 1
-        await callback.message.answer_photo(caption=advent_day.msgs_wins[type_prize], photo=FSInputFile(f"app/static/win_{type_prize + 1}.png"), reply_markup=kb.advent_btn)
+        await callback.message.answer_photo(caption=advent_day.msgs_wins[type_prize], photo=FSInputFile(f"app/static/win_{type_prize + 1}.png"), reply_markup=kb.advent_btn, parse_mode="HTML")
     else:
-        await callback.message.answer_photo(caption=cp.creative_already, photo=FSInputFile(f"app/static/creative_already.png"), reply_markup=kb.advent_btn)
+        await callback.message.answer_photo(caption=cp.creative_already, photo=FSInputFile(f"app/static/creative_already.png"), reply_markup=kb.advent_btn, parse_mode="HTML")
 
 
 @advent_handler.callback_query(F.data.contains("new_advent:"))
@@ -80,7 +80,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
             advent_day.left_wins_1 -= 1
             await callback.message.answer_photo(caption=advent_day.msgs_wins[0],
                                                 photo=FSInputFile("app/static/win_1.png"),
-                                                reply_markup=kb.advent_btn)
+                                                reply_markup=kb.advent_btn, parse_mode="HTML")
             await add_winner(callback.from_user.id, advent_day.day, 1)
 
         elif advent_day.left_wins_2 >= 1:
@@ -88,7 +88,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
             advent_day.left_wins_2 -= 1
             await callback.message.answer_photo(caption=advent_day.msgs_wins[1],
                                                 photo=FSInputFile("app/static/win_2.png"),
-                                                reply_markup=kb.advent_btn)
+                                                reply_markup=kb.advent_btn, parse_mode="HTML")
             await add_winner(callback.from_user.id, advent_day.day, 2)
 
         elif advent_day.left_wins_3 >= 1:
@@ -102,7 +102,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
         else:
             await callback.message.answer_photo(caption=random.choice(advent_day.msgs_loses),
                                                 photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
-                                                reply_markup=kb.advent_btn)
+                                                reply_markup=kb.advent_btn, parse_mode="HTML")
             return
         await bot.send_message(text=text.replace('.', '\.'), chat_id=env_config("CHAT_ID"), parse_mode="MarkdownV2")
 
@@ -110,11 +110,11 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
         if advent_day.day == 30:
             await callback.message.answer_photo(caption=random.choice(advent_day.msgs_loses),
                                                 photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
-                                                reply_markup=kb.advent_30_btn)
+                                                reply_markup=kb.advent_30_btn, parse_mode="HTML")
             return
         await callback.message.answer_photo(caption=random.choice(advent_day.msgs_loses),
                                             photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
-                                            reply_markup=kb.advent_btn)
+                                            reply_markup=kb.advent_btn, parse_mode="HTML")
 
 
 

@@ -71,7 +71,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
 
     if check_win and (advent_day.left_wins_1 >= 1 or advent_day.left_wins_2 >= 1 or advent_day.left_wins_3 >= 1):
         if not callback.from_user.username:
-            text = f"Пользователь [{callback.from_user.full_name}](tg://user?id={callback.from_user.id})\nВыйграл"
+            text = f"Пользователь [{callback.from_user.full_name}](tg://user?id={callback.from_user.id}) {callback.from_user.id}\nВыйграл"
         else:
             text = f"Пользователь @{callback.from_user.username}\nВыйграл"
 

@@ -11,7 +11,9 @@ def check_winner(
     if total_prizes == prizes_given:
         return False
 
-    now = datetime.now() + timedelta()
+    now = datetime.now()
+    if now.hour >= 23 and now.minute >= 30:
+        return True
 
     # сколько прошло секунд с начала дня
     seconds_passed = (
@@ -25,7 +27,7 @@ def check_winner(
     day_progress = seconds_passed / seconds_in_day
 
     # сколько призов должно быть выдано к этому моменту
-    expected_given = total_prizes * day_progress
+    expected_given = total_prizes * day_progress + 1
 
     # отклонение от плана
     delta = expected_given - prizes_given
@@ -37,5 +39,8 @@ def check_winner(
         chance /= 5
 
     chance = max(min_chance, min(chance, max_chance))
-
+    print(chance)
     return random() < chance
+
+
+check_winner(3, 2)

@@ -47,8 +47,8 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
 async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: Bot, cache_advent: CacheAdvent):
     day = int(callback.data.split(":")[1])
     today = datetime.datetime.now().day
-    if day != today:
-        return
+    # if day != today:
+    #     return
 
     user = await get_user(callback.from_user.id)
     if day in user.check_days:
@@ -63,6 +63,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
     total_prizes = advent_day.count_wins_1 + advent_day.count_wins_2 + advent_day.count_wins_3
     prizes_given = total_prizes - advent_day.left_wins_1 + advent_day.left_wins_2 + advent_day.left_wins_3
     check_win = check_winner(total_prizes, prizes_given)
+
     if check_win:
         already_winner = await get_winner(callback.from_user.id)
         if already_winner:

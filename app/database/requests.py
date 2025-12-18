@@ -109,5 +109,6 @@ async def get_analytics() -> List[int]:
         count_new_members = await session.scalar(select(func.count(User.tg_id)).where(User.new_subscriber == True, User.member == "new"))
         summary_clicks = await session.scalar(select(func.sum(AdventDay.count_clicks)))
         count_users_with_mark = await session.scalar(select(func.count(User.tg_id)).where(User.mark != ""))
+        every_day_clicks = await session.execute(select(AdventDay.day, AdventDay.count_clicks).order_by(AdventDay.day))
 
-    return [count_users, count_new_subscribers, count_new_members, summary_clicks, count_users_with_mark]
+    return [count_users, count_new_subscribers, count_new_members, summary_clicks, count_users_with_mark, every_day_clicks]

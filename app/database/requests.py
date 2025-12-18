@@ -1,8 +1,10 @@
+from typing import List
+
 from app.database.models import User, async_session, AdventDay, Winner
 from sqlalchemy import select, BigInteger, update, delete, func, case, insert, or_
 
 
-async def add_user(tg_id: BigInteger, first_name: str, username: str, full_name: str, mark: str = ""):
+async def add_user(tg_id: BigInteger, first_name: str, username: str, full_name: str, mark: str = "", member_status: str = ""):
     """
     Функция добавляет пользователя в БД
     """
@@ -12,7 +14,8 @@ async def add_user(tg_id: BigInteger, first_name: str, username: str, full_name:
             first_name=first_name,
             username=username,
             full_name=full_name,
-            mark=mark))
+            mark=mark,
+            member_status=member_status))
         await session.commit()
 
 
@@ -97,3 +100,14 @@ async def get_winner(tg_id: BigInteger) -> Winner | None:
         if result:
             return result
         return None
+
+
+async def get_analytics() -> List[int]:
+    async with async_session() as session:
+        count_users = await session.scalar(select(func.count(User.tg_id)))
+        count_new_subscribers = await session.scalar(select(func.count(User.tg_id)).where(User.new_subscriber == True))
+        count_new_members = await session.scalar(select(func.count(User.tg_id)).where(User.new_subscriber == True, User.member == "new"))
+        summary_clicks = await session.scalar(select(func.sum(AdventDay.count_clicks)))
+        count_users_with_mark = await session.scalar(select(func.count(User.tg_id)).where(User.mark != ""))
+
+    return [count_users, count_new_subscribers, count_new_members, summary_clicks, count_users_with_mark]

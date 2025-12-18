@@ -15,7 +15,7 @@ async def add_user(tg_id: BigInteger, first_name: str, username: str, full_name:
             username=username,
             full_name=full_name,
             mark=mark,
-            member_status=member_status))
+            member=member_status))
         await session.commit()
 
 

@@ -71,7 +71,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
 
     if check_win and (advent_day.left_wins_1 >= 1 or advent_day.left_wins_2 >= 1 or advent_day.left_wins_3 >= 1):
         if not callback.from_user.username:
-            text = f"Пользователь {callback.from_user.full_name} {callback.from_user.id}\nВыйграл"
+            text = f"""Пользователь <a href="tg://user?id={callback.from_user.id}">{callback.from_user.full_name}</a> {callback.from_user.id}\nВыйграл"""
         else:
             text = f"Пользователь @{callback.from_user.username}\nВыйграл"
 
@@ -96,7 +96,8 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
             advent_day.left_wins_3 -= 1
             await callback.message.answer_photo(caption=advent_day.msgs_wins[3],
                                                 photo=FSInputFile("app/static/win_3.png"),
-                                                reply_markup=kb.advent_btn)
+                                                reply_markup=kb.advent_btn,
+                                                parse_mode="HTML")
             await add_winner(callback.from_user.id, advent_day.day, 3)
 
         else:
@@ -104,7 +105,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
                                                 photo=FSInputFile(f"app/static/creative_{advent_day.day}.png"),
                                                 reply_markup=kb.advent_btn, parse_mode="HTML")
             return
-        await bot.send_message(text=text, chat_id=env_config("CHAT_ID"))
+        await bot.send_message(text=text, chat_id=env_config("CHAT_ID"), parse_mode="HTML")
 
     else:
         if advent_day.day == 30:

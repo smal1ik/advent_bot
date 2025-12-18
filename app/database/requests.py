@@ -71,7 +71,9 @@ async def update_advent_day(advent_day: AdventDay):
     async with async_session() as session:
         await session.execute(update(AdventDay).where(AdventDay.day == advent_day.day).
                               values(
-            count_wins=advent_day.count_wins,
+            count_wins_1=advent_day.count_wins_1,
+            count_wins_2=advent_day.count_wins_2,
+            count_wins_3=advent_day.count_wins_3,
             msgs_wins=advent_day.msgs_wins,
             msgs_loses=advent_day.msgs_loses,
         ))

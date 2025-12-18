@@ -32,14 +32,14 @@ advent_calendar = [
     AdventDay(day=18,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  "Это будет ваш год — без лишней суеты и с правильной расстановкой приоритетов. Шаг за шагом вы увидите, как ваши усилия начнут приносить плоды. Не ждите мгновенных результатов — вы и сами не заметите, как начнут сбываться ваши давние желания."],
+                  "2026 —  ваш год: без лишней суеты и с правильной расстановкой приоритетов. Шаг за шагом вы увидите, как ваши усилия начнут приносить плоды. Не ждите мгновенных результатов — вы и сами не заметите, как начнут сбываться ваши давние желания."],
               count_wins_1=2,
               count_wins_2=2,
               count_wins_3=0),
     AdventDay(day=19,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  "Ловите классный рецепт зимнего напитка! Тёплый апельсиново-имбирный чай. В чашку — ломтик апельсина, щепотку имбиря, чайную ложку мёда и горячую воду. Настоять 3–4 минуты.  "],
+                  "Ловите классный рецепт зимнего напитка! Тёплый апельсиново-имбирный чай. В чашку — ломтик апельсина, щепотку имбиря, чайную ложку мёда и горячую воду. Настоять 3–4 минуты."],
               count_wins_1=1,
               count_wins_2=0,
               count_wins_3=0),
@@ -52,8 +52,12 @@ advent_calendar = [
               count_wins_3=0),
     AdventDay(day=21,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
-              msgs_loses=["""Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильный аксессуар станет ярким акцентом — перчатки, шапка-ушанка или балаклава. Они зададут настроение всему аутфиту.\n\nПодобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot и «Украшения» https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>""",
-                          """В любом образе важен акцент. Выберите одну деталь — маленькую, но заметную: шарф с принтом, брошь или контрастные перчатки. Этот элемент поможет вам выстроить гармоничный и модный аутфит.\n\nПодобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>"""],
+              msgs_loses=["""Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильный аксессуар станет ярким акцентом — перчатки, шапка-ушанка или балаклава. Они зададут настроение всему аутфиту.
+
+Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot и «Украшения» https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>""",
+                          """В любом образе важен акцент. Выберите одну деталь — маленькую, но заметную: шарф с принтом, брошь или контрастные перчатки. Этот элемент поможет вам выстроить гармоничный и модный аутфит.
+
+Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a> и <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Украшения»</a>"""],
               count_wins_1=0,
               count_wins_2=0,
               count_wins_3=0),

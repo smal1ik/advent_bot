@@ -54,5 +54,5 @@ class Winner(Base):
     __tablename__ = 'winners'
     id: Mapped[int] = mapped_column(primary_key=True)
     day: Mapped[int] = mapped_column(nullable=False)
-    tg_id: Mapped[int] = mapped_column(nullable=False)
+    tg_id = mapped_column(BigInteger)
     type_prize: Mapped[int] = mapped_column(nullable=False)

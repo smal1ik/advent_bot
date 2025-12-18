@@ -13,6 +13,8 @@ def check_winner(
 
     now = datetime.now()
     print(now)
+    if now.hour <= 9:
+        return random() < 0.0001
     if now.hour == 23 and now.minute >= 30:
         return True
 
@@ -36,8 +38,8 @@ def check_winner(
     # вероятность выигрыша
     chance = delta / total_prizes
 
-    if chance < 0.5:
-        chance /= 5
+    if chance < 0.6:
+        chance /= 50
 
     chance = max(min_chance, min(chance, max_chance))
     return random() < chance

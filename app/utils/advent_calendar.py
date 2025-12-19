@@ -46,15 +46,15 @@ advent_calendar = [
     AdventDay(day=20,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  "Пусть день будет в вашем ритме. А также комфорт, любимая одежда и напитки, а ещё — стильные детали, которые радуют и делают образ гармоничным."],
+                  "Пусть день пройдет в вашем ритме. Да здравствуют комфорт, любимая одежда и напитки! А ещё — стильные детали, которые радуют и делают образ гармоничным."],
               count_wins_1=0,
               count_wins_2=3,
               count_wins_3=0),
     AdventDay(day=21,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
-              msgs_loses=["""Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильный аксессуар станет ярким акцентом — перчатки, шапка-ушанка или балаклава. Они зададут настроение всему аутфиту.
+              msgs_loses=[""" Комфортный и стильный образ, который легко повторить: оверсайз сверху и собранный низ. Молочные и бежевые оттенки добавят уюта. А стильные перчатки, шапка-ушанка или балаклава станут ярким акцентом.
 
-Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot и «Украшения» https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a>""",
+Подобрать подходящий аксессуар можно на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a> и <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Украшения»</a>""",
                           """В любом образе важен акцент. Выберите одну деталь — маленькую, но заметную: шарф с принтом, брошь или контрастные перчатки. Этот элемент поможет вам выстроить гармоничный и модный аутфит.
 
 Подобрать подходящий аксессуар вы можете на сайте maag-fashion.com в разделах <a href="https://maag-fashion.com/collections/women-accessories/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Аксессуары»</a> и <a href="https://maag-fashion.com/collections/women-jewellery/?utm_source=telegram&utm_medium=advent-calendar&utm_campaign=maag_advent_bot">«Украшения»</a>"""],
@@ -64,7 +64,7 @@ advent_calendar = [
     AdventDay(day=22,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
               msgs_loses=[
-                  "Желаем лёгкой и атмосферной подготовки к Новому году. Без суеты и спешки. Пусть вас сопровождает ощущение уюта, радостного предвкушения праздника."],
+                  "Желаем лёгкой и атмосферной подготовки к Новому году. Без суеты и спешки. Пусть вас сопровождают ощущение уюта и радостного предвкушения праздника."],
               count_wins_1=3,
               count_wins_2=1,
               count_wins_3=0),
@@ -91,7 +91,7 @@ advent_calendar = [
               count_wins_3=0),
     AdventDay(day=26,
               msgs_wins=[msg_wins_1, msg_wins_2, msg_wins_3],
-              msgs_loses=["""За окном — метель, на душе — предвкушение праздника, а на экране — новогоднее кино, конечно же. Думаете, уже нет фильмов с праздничным настроением, которые вы не смотрели? Держите подборку зимних картин, которые не на слуху, но создают волшебную атмосферу. Обязательно смотреть под пледом и в прикуску с мандаринами!
+              msgs_loses=["""За окном — метель, на душе — предвкушение праздника, а на экране — новогоднее кино, конечно же. Думаете, фильмов с праздничным настроением, которые вы не смотрели, не существует? Держите подборку, создающую волшебную атмосферу — что-то вас обязательно удивит. Смотреть под пледом, с мандаринами вприкуску!
 Эта замечательная жизнь (1947 г.)
 Чудо на 34-й улице (1994 г.)
 Счастливого Рождества (2005 г.) 

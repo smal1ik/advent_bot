@@ -20,8 +20,9 @@ async def cmd_message(message: types.Message, bot: Bot):
 Всего участников: {analytics[1]}
 Новых подписчиков: {analytics[2]}
 Общее число кликов: {analytics[3]}
-Число людей с рефералкой: {analytics[4]}
 """
+    for name_mark, count in analytics[4]:
+        msg += f"{name_mark} | {count}\n"
     for day in analytics[5]:
         msg += f"\n{day.day} день | число кликов: {day.count_clicks}"
     await message.answer(msg)

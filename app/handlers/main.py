@@ -31,31 +31,13 @@ async def cmd_message(message: types.Message, bot: Bot):
 @main_handler.message(Command('start'))
 async def cmd_message(message: types.Message, bot: Bot, command: Command):
     user = await get_user(message.from_user.id)
-    secret_key = command.args
-    member = await bot.get_chat_member(chat_id=env_config('CHANNEL_ID'), user_id=message.from_user.id)
-    if member.status in ("member", "administrator", "creator"):
-        member_status = "old"
-    else:
-        member_status = "new"
-    if not user:
-        await add_user(message.from_user.id,
-                       message.from_user.first_name,
-                       message.from_user.username,
-                       message.from_user.full_name,
-                       secret_key,
-                       member_status)
-        await message.answer(cp.sub_msg, reply_markup=kb.sub_btn)
-        return
-    if member.status in ("member", "administrator", "creator"):
-        now = datetime.now()
-        day = now.day
-        await message.answer_photo(photo=FSInputFile(f"app/static/advent_{day}.png"),
-                                   caption=cp.start_msg,
-                                   reply_markup=kb.get_advent_btn(check_days=user.check_days,
-                                                                  start_day=17,
-                                                                  end_day=31))
-    else:
-        await message.answer(cp.sub_msg, reply_markup=kb.sub_btn)
+    if user:
+        await message.answer("""Начните год с подарков! Для этого вам нужно:
+1. Подписаться на канал MAAG
+2. Нажать на кнопку «Принять участие»
+3. Дождаться результатов уже в это воскресенье в 18:00
+
+Ваша удача ждёт своего часа!""", reply_markup=kb.active_btn)
 
 
 @main_handler.callback_query(F.data == 'check_sub')

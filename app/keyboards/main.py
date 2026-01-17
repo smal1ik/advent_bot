@@ -97,3 +97,13 @@ advent_btn.row(
     )
 )
 advent_btn = advent_btn.as_markup()
+
+
+active_btn = InlineKeyboardBuilder()
+active_btn.row(
+    types.InlineKeyboardButton(
+        text="Принять участие",
+        callback_data="active"
+    )
+)
+active_btn = active_btn.as_markup()

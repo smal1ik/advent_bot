@@ -51,15 +51,9 @@ def get_advent_btn(start_day=1,
             if start_day + j in check_days:
                 text += " ✅"
                 callback_data = f'unlock_advent:{start_day + j}'
-            elif start_day + j < today:
+            else:
                 text += " ❌"
                 callback_data = "miss_advent"
-            elif start_day + j == today:
-                text += " 🎁"
-                callback_data = f'new_advent:{start_day + j}'
-            else:
-                text += " 🔒"
-                callback_data = "lock_advent"
 
             row.append(
                 types.InlineKeyboardButton(

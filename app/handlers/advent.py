@@ -94,7 +94,7 @@ async def answer_message(callback: types.CallbackQuery, state: FSMContext, bot: 
         elif advent_day.left_wins_3 >= 1:
             text += f" {cp.prizes[2]}\nВремя: {datetime.datetime.now().strftime('%d.%m.%y %H:%M:%S')}"
             advent_day.left_wins_3 -= 1
-            await callback.message.answer_photo(caption=advent_day.msgs_wins[3],
+            await callback.message.answer_photo(caption=advent_day.msgs_wins[2],
                                                 photo=FSInputFile("app/static/win_3.png"),
                                                 reply_markup=kb.advent_btn,
                                                 parse_mode="HTML")

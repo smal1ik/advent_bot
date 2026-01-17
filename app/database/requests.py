@@ -115,3 +115,9 @@ async def get_analytics() -> List[int]:
         every_day_clicks = await session.execute(select(AdventDay.day, AdventDay.count_clicks).order_by(AdventDay.day))
 
     return [count_users, count_new_subscribers, count_new_members, summary_clicks, count_users_with_mark, every_day_clicks]
+
+
+async def active_user(tg_id: BigInteger):
+    async with async_session() as session:
+        await session.execute(update(User).where(User.tg_id == tg_id).values(active=True))
+        await session.commit()

@@ -6,7 +6,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.types import FSInputFile
 from decouple import config as env_config
 
-from app.database.requests import get_user, add_user, update_user_subscription, get_analytics
+from app.database.requests import get_user, add_user, update_user_subscription, get_analytics, active_user
 from app.texts import main as cp
 from app.keyboards import main as kb
 
@@ -89,3 +89,12 @@ async def advent(callback: types.CallbackQuery, state: FSMContext, bot: Bot):
                                                                            end_day=31))
     else:
         await callback.message.answer(cp.sub_msg, reply_markup=kb.sub_btn)
+
+
+@main_handler.callback_query(F.data == 'active')
+async def advent(callback: types.CallbackQuery, state: FSMContext, bot: Bot):
+    user = await get_user(callback.from_user.id)
+    if user:
+        await active_user(callback.from_user.id)
+        await callback.message.answer("Теперь вы участвуете, результаты 18го Января в 18:00!")
+

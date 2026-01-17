@@ -32,6 +32,7 @@ class User(Base):
     check_days: Mapped[List[int]] = mapped_column(JSONB, default=[])
     new_subscriber: Mapped[bool] = mapped_column(default=False)
     member: Mapped[str] = mapped_column(nullable=True, default='')
+    active: Mapped[bool] = mapped_column(nullable=True, default=False)
 
 
 class AdventDay(Base):
